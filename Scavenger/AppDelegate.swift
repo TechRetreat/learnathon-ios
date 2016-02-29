@@ -12,10 +12,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func start() {
+        let menu = MenuViewController()
+        let navController = UINavigationController(rootViewController: menu)
+        self.window!.rootViewController = navController
+    }
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        self.start()
+        
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
