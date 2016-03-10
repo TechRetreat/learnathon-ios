@@ -11,10 +11,13 @@ import UIKit
 class MenuViewController: UIViewController {
     private let tableView = UITableView()
     private let menus = ["Map", "Account", "My Found Locations", "Nearby"]
+    private let controllers = [MapViewController()]
     private let menuCellIdentifier = "menuCellIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Menu"
         
         self.view.backgroundColor = UIColor.greenColor()
         
@@ -30,7 +33,12 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //TODO: Implement me
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if (indexPath.row < controllers.count) {
+            let VC = controllers[indexPath.row]
+            self.navigationController?.pushViewController(VC, animated: true)
+        }
     }
 }
 

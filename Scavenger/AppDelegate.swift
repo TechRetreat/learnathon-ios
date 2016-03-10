@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func start() {
         let menu = MenuViewController()
         let navController = UINavigationController(rootViewController: menu)
+        
         self.window!.rootViewController = navController
     }
 

@@ -15,6 +15,8 @@
 		9F44A1861C801F41004EE091 /* ScavengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F44A1851C801F41004EE091 /* ScavengerUITests.swift */; };
 		9F47BE481C83CC55000270EB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE471C83CC55000270EB /* MenuViewController.swift */; };
 		9F47BE4C1C83D06D000270EB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE4B1C83D06D000270EB /* MapViewController.swift */; };
+		9FE8B2111C8EA04100A4A2BB /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8B2101C8EA04100A4A2BB /* Annotation.swift */; };
+		9FE8B2131C8EB0EB00A4A2BB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8B2121C8EB0EB00A4A2BB /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		9F44A1871C801F41004EE091 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F47BE471C83CC55000270EB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		9F47BE4B1C83D06D000270EB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9FE8B2101C8EA04100A4A2BB /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		9FE8B2121C8EB0EB00A4A2BB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				9F44A1651C801F41004EE091 /* AppDelegate.swift */,
 				9F47BE471C83CC55000270EB /* MenuViewController.swift */,
 				9F47BE4B1C83D06D000270EB /* MapViewController.swift */,
+				9FE8B2121C8EB0EB00A4A2BB /* DetailViewController.swift */,
+				9FE8B2101C8EA04100A4A2BB /* Annotation.swift */,
 				9F44A1691C801F41004EE091 /* Main.storyboard */,
 				9F44A16C1C801F41004EE091 /* Assets.xcassets */,
 				9F44A16E1C801F41004EE091 /* LaunchScreen.storyboard */,
@@ -264,6 +270,8 @@
 			files = (
 				9F44A1661C801F41004EE091 /* AppDelegate.swift in Sources */,
 				9F47BE4C1C83D06D000270EB /* MapViewController.swift in Sources */,
+				9FE8B2131C8EB0EB00A4A2BB /* DetailViewController.swift in Sources */,
+				9FE8B2111C8EA04100A4A2BB /* Annotation.swift in Sources */,
 				9F47BE481C83CC55000270EB /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
