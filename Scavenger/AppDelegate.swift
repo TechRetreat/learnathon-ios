@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var caches = DataModel()
     
     func start() {
         let menu = MenuViewController()

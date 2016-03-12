@@ -14,6 +14,9 @@
 		9F44A1861C801F41004EE091 /* ScavengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F44A1851C801F41004EE091 /* ScavengerUITests.swift */; };
 		9F47BE481C83CC55000270EB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE471C83CC55000270EB /* MenuViewController.swift */; };
 		9F47BE4C1C83D06D000270EB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F47BE4B1C83D06D000270EB /* MapViewController.swift */; };
+		9F6B84421C93E66600CEFC04 /* caches.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F6B84411C93E66600CEFC04 /* caches.json */; };
+		9F6B84441C93E67300CEFC04 /* found.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F6B84431C93E67300CEFC04 /* found.json */; };
+		9F6B84461C93E6BF00CEFC04 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B84451C93E6BF00CEFC04 /* Cache.swift */; };
 		9FE8B2111C8EA04100A4A2BB /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8B2101C8EA04100A4A2BB /* Annotation.swift */; };
 		9FE8B2131C8EB0EB00A4A2BB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8B2121C8EB0EB00A4A2BB /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +52,9 @@
 		9F44A1871C801F41004EE091 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F47BE471C83CC55000270EB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		9F47BE4B1C83D06D000270EB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9F6B84411C93E66600CEFC04 /* caches.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = caches.json; sourceTree = "<group>"; };
+		9F6B84431C93E67300CEFC04 /* found.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = found.json; sourceTree = "<group>"; };
+		9F6B84451C93E6BF00CEFC04 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		9FE8B2101C8EA04100A4A2BB /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		9FE8B2121C8EB0EB00A4A2BB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,11 +110,12 @@
 				9F44A1651C801F41004EE091 /* AppDelegate.swift */,
 				9F47BE471C83CC55000270EB /* MenuViewController.swift */,
 				9F47BE4B1C83D06D000270EB /* MapViewController.swift */,
+				9F6B84451C93E6BF00CEFC04 /* Cache.swift */,
 				9FE8B2121C8EB0EB00A4A2BB /* DetailViewController.swift */,
 				9FE8B2101C8EA04100A4A2BB /* Annotation.swift */,
-				9F44A16C1C801F41004EE091 /* Assets.xcassets */,
-				9F44A16E1C801F41004EE091 /* LaunchScreen.storyboard */,
-				9F44A1711C801F41004EE091 /* Info.plist */,
+				9FE8B2501C923FA500A4A2BB /* Helpers */,
+				9F6B84411C93E66600CEFC04 /* caches.json */,
+				9F6B84431C93E67300CEFC04 /* found.json */,
 			);
 			path = Scavenger;
 			sourceTree = "<group>";
@@ -129,6 +136,16 @@
 				9F44A1871C801F41004EE091 /* Info.plist */,
 			);
 			path = ScavengerUITests;
+			sourceTree = "<group>";
+		};
+		9FE8B2501C923FA500A4A2BB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9F44A16C1C801F41004EE091 /* Assets.xcassets */,
+				9F44A16E1C801F41004EE091 /* LaunchScreen.storyboard */,
+				9F44A1711C801F41004EE091 /* Info.plist */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +256,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F44A1701C801F41004EE091 /* LaunchScreen.storyboard in Resources */,
+				9F6B84421C93E66600CEFC04 /* caches.json in Resources */,
+				9F6B84441C93E67300CEFC04 /* found.json in Resources */,
 				9F44A16D1C801F41004EE091 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +287,7 @@
 				9F47BE4C1C83D06D000270EB /* MapViewController.swift in Sources */,
 				9FE8B2131C8EB0EB00A4A2BB /* DetailViewController.swift in Sources */,
 				9FE8B2111C8EA04100A4A2BB /* Annotation.swift in Sources */,
+				9F6B84461C93E6BF00CEFC04 /* Cache.swift in Sources */,
 				9F47BE481C83CC55000270EB /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -56,11 +56,11 @@ class MapViewController: UIViewController {
         self.mapView.setRegion(newRegion, animated: true)
     }
     
-    func goToByAnnotation(annotation: Annotation) {
+    func goToByAnnotation(destAnnot: Annotation) {
         for a in self.annotations {
-            if ((a.coordinate.latitude == annotation.coordinate.latitude) && (a.coordinate.longitude == annotation.coordinate.longitude)) {
+            if ((a.coordinate.latitude == destAnnot.coordinate.latitude) && (a.coordinate.longitude == destAnnot.coordinate.longitude)) {
                 self.mapView .removeAnnotations(self.mapView.annotations)
-                self.mapView.addAnnotation(annotation)
+                self.mapView.addAnnotation(destAnnot)
                 self.goToDefaultLocation()
             }
         }

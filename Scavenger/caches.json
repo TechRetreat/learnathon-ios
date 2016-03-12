@@ -1,0 +1,40 @@
+{
+    "caches": {
+        "yrolad": {
+            "name": "Cache 1",
+            "description": "Hey a cache description 1",
+            "difficulty": 3,
+            "location": {
+                "latitude": 43.38224,
+                "longitude": -80.32682
+            }
+        },
+        "mdifpq": {
+            "name": "Cache 2",
+            "description": "Another one",
+            "difficulty": 3,
+            "location": {
+                "latitude": 43.38224,
+                "longitude": -80.32582
+            }
+        },
+        "cbdiyd": {
+            "name": "Cache 3",
+            "description": "Buy your momma a house",
+            "difficulty": 3,
+            "location": {
+                "latitude": 43.38454,
+                "longitude": -80.32382
+            }
+        },
+        "qudotn": {
+            "name": "Cache 4",
+            "description": "Buy your whole family houses",
+            "difficulty": 3,
+            "location": {
+                "latitude": 43.38024,
+                "longitude": -80.32382
+            }
+        }
+    }
+}

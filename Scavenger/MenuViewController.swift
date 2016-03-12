@@ -10,7 +10,7 @@ import UIKit
 
 class MenuViewController: UIViewController {
     private let tableView = UITableView()
-    private let menus = ["Map", "Account", "My Found Locations", "Nearby"]
+    private let menus = ["Map", "My Found Locations", "Nearby", "Settings"]
     private let controllers = [MapViewController()]
     private let menuCellIdentifier = "menuCellIdentifier"
     
