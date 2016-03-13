@@ -9,6 +9,9 @@
 import Foundation
 import MapKit
 
+typealias CacheDetailJSON = [String:AnyObject]
+typealias CacheJSON = [String:CacheDetailJSON]
+
 class Cache {
     let name: String
     let description: String
@@ -23,7 +26,7 @@ class Cache {
         self.location = location
     }
     
-    init(json: [String:AnyObject]) {
+    init(json: CacheDetailJSON) {
         if let name = json["name"] as? String,
            let desc = json["description"] as? String,
            let diff = json["difficulty"] as? Int,
@@ -79,24 +82,55 @@ class DataModel {
         case InvalidFormat
     }
     
-    func updateCaches() { // Returns a dictionary of String ids to the cache object
+    func updateCaches() {
+        self.loadCaches()
+        self.updateFoundStates()
+    }
+    
+    func loadCaches() { // Returns a dictionary of String ids to the cache object
         do {
             if let path = NSBundle.mainBundle().pathForResource("caches", ofType: "json") {
                 if let jsonData = NSData(contentsOfFile: path) {
-                    guard let jsonResult = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? [String:[String:AnyObject]] else {
+                    guard let jsonResult = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? [String:CacheJSON] else {
                         print("We gucci")
                         throw DataModelError.InvalidFormat
                     }
                     caches = [String:Cache]() // clear out old caches
-                    for (id, object) in jsonResult {
-                        let cache = Cache(json: object)
-                        caches[id] = cache
+                    if let cacheEntry = jsonResult["caches"] {
+                        for (id, object) in cacheEntry {
+                            let cache = Cache(json: object)
+                            caches[id] = cache
+                        }
                     }
                 }
             }
         } catch {
             print("Something went wrong...")
         }
+    }
+    
+    func updateFoundStates() {
+        do {
+            if let path = NSBundle.mainBundle().pathForResource("found", ofType: "json") {
+                if let jsonData = NSData(contentsOfFile: path) {
+                    guard let jsonResult = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? [String:[String:Double]] else {
+                        print("We gucci")
+                        throw DataModelError.InvalidFormat
+                    }
+                    
+                    if let cacheEntry = jsonResult["found_times"] {
+                        for (id, time) in cacheEntry {
+                            if let cache = self.caches[id] {
+                                cache.found = time
+                            }
+                        }
+                    }
+                }
+            }
+        } catch {
+            print("Something went wrong...")
+        }
+
     }
     
     func findCache(id: String) {

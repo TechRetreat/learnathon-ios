@@ -17,8 +17,11 @@
 		9F6B84421C93E66600CEFC04 /* caches.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F6B84411C93E66600CEFC04 /* caches.json */; };
 		9F6B84441C93E67300CEFC04 /* found.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F6B84431C93E67300CEFC04 /* found.json */; };
 		9F6B84461C93E6BF00CEFC04 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B84451C93E6BF00CEFC04 /* Cache.swift */; };
+		9F6B84491C94ED5A00CEFC04 /* CacheListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B84481C94ED5A00CEFC04 /* CacheListViewController.swift */; };
+		9F6B844B1C94EE8300CEFC04 /* CacheDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B844A1C94EE8300CEFC04 /* CacheDetailViewController.swift */; };
+		9F6B844D1C94EFDC00CEFC04 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B844C1C94EFDC00CEFC04 /* Extensions.swift */; };
+		9F6B84531C94F0FB00CEFC04 /* FoundCacheListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B84521C94F0FB00CEFC04 /* FoundCacheListViewController.swift */; };
 		9FE8B2111C8EA04100A4A2BB /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8B2101C8EA04100A4A2BB /* Annotation.swift */; };
-		9FE8B2131C8EB0EB00A4A2BB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8B2121C8EB0EB00A4A2BB /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +58,11 @@
 		9F6B84411C93E66600CEFC04 /* caches.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = caches.json; sourceTree = "<group>"; };
 		9F6B84431C93E67300CEFC04 /* found.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = found.json; sourceTree = "<group>"; };
 		9F6B84451C93E6BF00CEFC04 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		9F6B84481C94ED5A00CEFC04 /* CacheListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheListViewController.swift; sourceTree = "<group>"; };
+		9F6B844A1C94EE8300CEFC04 /* CacheDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheDetailViewController.swift; sourceTree = "<group>"; };
+		9F6B844C1C94EFDC00CEFC04 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9F6B84521C94F0FB00CEFC04 /* FoundCacheListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundCacheListViewController.swift; sourceTree = "<group>"; };
 		9FE8B2101C8EA04100A4A2BB /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
-		9FE8B2121C8EB0EB00A4A2BB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,12 +116,14 @@
 				9F44A1651C801F41004EE091 /* AppDelegate.swift */,
 				9F47BE471C83CC55000270EB /* MenuViewController.swift */,
 				9F47BE4B1C83D06D000270EB /* MapViewController.swift */,
+				9F6B84481C94ED5A00CEFC04 /* CacheListViewController.swift */,
+				9F6B84521C94F0FB00CEFC04 /* FoundCacheListViewController.swift */,
+				9F6B844A1C94EE8300CEFC04 /* CacheDetailViewController.swift */,
+				9F6B844C1C94EFDC00CEFC04 /* Extensions.swift */,
 				9F6B84451C93E6BF00CEFC04 /* Cache.swift */,
-				9FE8B2121C8EB0EB00A4A2BB /* DetailViewController.swift */,
 				9FE8B2101C8EA04100A4A2BB /* Annotation.swift */,
 				9FE8B2501C923FA500A4A2BB /* Helpers */,
-				9F6B84411C93E66600CEFC04 /* caches.json */,
-				9F6B84431C93E67300CEFC04 /* found.json */,
+				9F6B84471C94C4DF00CEFC04 /* Data */,
 			);
 			path = Scavenger;
 			sourceTree = "<group>";
@@ -136,6 +144,15 @@
 				9F44A1871C801F41004EE091 /* Info.plist */,
 			);
 			path = ScavengerUITests;
+			sourceTree = "<group>";
+		};
+		9F6B84471C94C4DF00CEFC04 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9F6B84411C93E66600CEFC04 /* caches.json */,
+				9F6B84431C93E67300CEFC04 /* found.json */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		9FE8B2501C923FA500A4A2BB /* Helpers */ = {
@@ -283,12 +300,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F6B84531C94F0FB00CEFC04 /* FoundCacheListViewController.swift in Sources */,
+				9F6B844B1C94EE8300CEFC04 /* CacheDetailViewController.swift in Sources */,
 				9F44A1661C801F41004EE091 /* AppDelegate.swift in Sources */,
 				9F47BE4C1C83D06D000270EB /* MapViewController.swift in Sources */,
-				9FE8B2131C8EB0EB00A4A2BB /* DetailViewController.swift in Sources */,
+				9F6B844D1C94EFDC00CEFC04 /* Extensions.swift in Sources */,
 				9FE8B2111C8EA04100A4A2BB /* Annotation.swift in Sources */,
 				9F6B84461C93E6BF00CEFC04 /* Cache.swift in Sources */,
 				9F47BE481C83CC55000270EB /* MenuViewController.swift in Sources */,
+				9F6B84491C94ED5A00CEFC04 /* CacheListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

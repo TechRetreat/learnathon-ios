@@ -21,18 +21,13 @@ class MapViewController: UIViewController {
         self.mapView.delegate = self
         self.view.addSubview(self.mapView)
         
-        let sfAnnotation = Annotation(title: "San Fran", subtitle: "Dream on Kid", coordinate: CLLocationCoordinate2D(latitude: 37.786996, longitude: -122.419281))
-        let bridgeAnnotation = Annotation(title: "Bridge", subtitle: "Linking the dreams", coordinate: CLLocationCoordinate2D(latitude: 37.810000, longitude: -122.477450))
-        let wharfAnnotation = Annotation(title: "Wharf", subtitle: "Fish or smthng", coordinate: CLLocationCoordinate2D(latitude: 37.808333, longitude: -122.415556))
+        let caches: [String:Cache] = DataModel.sharedModel.caches
         
-        self.annotations += [sfAnnotation, bridgeAnnotation, wharfAnnotation]
+        for (_, cache) in caches {
+            annotations.append(Annotation(title: cache.name, subtitle: cache.description, coordinate: cache.location))
+        }
         
-        self.view.backgroundColor = UIColor.greenColor()
-        self.allAction()
-    }
-    
-    func allAction() {
-        self.mapView.removeAnnotations(self.mapView.annotations)
+        self.view.backgroundColor = UIColor.blackColor()
         self.mapView.addAnnotations(self.annotations)
         
         self.goToDefaultLocation()
@@ -47,8 +42,12 @@ class MapViewController: UIViewController {
     
     func goToDefaultLocation() {
         var newRegion = MKCoordinateRegion()
-        newRegion.center.latitude = 37.786996
-        newRegion.center.longitude = -122.440100
+        let latitudes = self.annotations.map { $0.coordinate.latitude }
+        let longitudes = self.annotations.map { $0.coordinate.longitude }
+        let avgLat = Int(latitudes.reduce(0, combine: +))/latitudes.count
+        let avgLon = Int(longitudes.reduce(0, combine: +))/longitudes.count
+        newRegion.center.latitude = Double(avgLat)
+        newRegion.center.longitude = Double(avgLon)
         
         newRegion.span.latitudeDelta = 0.2
         newRegion.span.longitudeDelta = 0.2
