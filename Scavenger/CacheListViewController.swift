@@ -10,9 +10,13 @@ import UIKit
 
 class CacheListViewController: UIViewController {
     private let tableView = UITableView()
-    private let menuCellIdentifier = "menuCellIdentifier"
+    private let cacheListIdentifier = "cacheListIdentifier"
     
-    var caches = [Cache]()
+    var caches = [Cache]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +27,7 @@ class CacheListViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 100
         tableView.frame = self.view.bounds
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: menuCellIdentifier)
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cacheListIdentifier)
         
         self.view.addSubview(tableView)
     }
@@ -51,16 +55,38 @@ extension CacheListViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(menuCellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cacheListIdentifier, forIndexPath: indexPath)
         
         let cacheTitle = caches[indexPath.row].name
         
         cell.textLabel?.text = cacheTitle
         cell.textLabel?.font = UIFont.systemFontOfSize(20, weight: UIFontWeightLight)
         cell.textLabel?.textColor = UIColor.blackColor()
+        
+        cell.detailTextLabel?.text = "Test?"
+        cell.detailTextLabel?.font = UIFont.systemFontOfSize(20, weight: UIFontWeightLight)
+        cell.detailTextLabel?.textColor = UIColor.blackColor()
+        
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, withStyle style: UITableViewCellStyle, andIdentifier id: String) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(id)
+        
+        if cell == nil {
+            cell = UITableViewCell(style: style, reuseIdentifier: id)
+        }
+        
+        let cacheTitle = caches[indexPath.row].name
+        
+        cell?.textLabel?.text = cacheTitle
+        cell?.textLabel?.font = UIFont.systemFontOfSize(20, weight: UIFontWeightLight)
+        cell?.textLabel?.textColor = UIColor.blackColor()
+        cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
+        return cell!
     }
     
 }

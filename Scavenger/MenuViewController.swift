@@ -11,7 +11,7 @@ import UIKit
 class MenuViewController: UIViewController {
     private let tableView = UITableView()
     private let menus = ["Map", "My Found Locations", "Nearby", "Settings"]
-    private let controllers = [MapViewController(), FoundCacheListViewController()]
+    private let controllers = [MapViewController(), FoundCachesListViewController(), ClosestCachesViewController()]
     private let menuCellIdentifier = "menuCellIdentifier"
     
     override func viewDidLoad() {

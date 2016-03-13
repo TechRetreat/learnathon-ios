@@ -1,5 +1,5 @@
 //
-//  FoundCacheListViewController.swift
+//  FoundCachesListViewController.swift
 //  Scavenger
 //
 //  Created by Paul Bardea on 2016-03-12.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FoundCacheListViewController: CacheListViewController {
+class FoundCachesListViewController: CacheListViewController {
     
     func getFoundLocations() {
         DataModel.sharedModel.updateCaches()

@@ -20,7 +20,10 @@
 		9F6B84491C94ED5A00CEFC04 /* CacheListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B84481C94ED5A00CEFC04 /* CacheListViewController.swift */; };
 		9F6B844B1C94EE8300CEFC04 /* CacheDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B844A1C94EE8300CEFC04 /* CacheDetailViewController.swift */; };
 		9F6B844D1C94EFDC00CEFC04 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B844C1C94EFDC00CEFC04 /* Extensions.swift */; };
-		9F6B84531C94F0FB00CEFC04 /* FoundCacheListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B84521C94F0FB00CEFC04 /* FoundCacheListViewController.swift */; };
+		9F6B84531C94F0FB00CEFC04 /* FoundCachesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B84521C94F0FB00CEFC04 /* FoundCachesListViewController.swift */; };
+		9F6B84551C95E8C800CEFC04 /* ClosestCachesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B84541C95E8C700CEFC04 /* ClosestCachesViewController.swift */; };
+		9F6B84571C95F12A00CEFC04 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6B84561C95F12A00CEFC04 /* CoreLocation.framework */; };
+		9F6B845C1C9618BB00CEFC04 /* Waterloo.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9F6B845B1C9618BB00CEFC04 /* Waterloo.gpx */; };
 		9FE8B2111C8EA04100A4A2BB /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8B2101C8EA04100A4A2BB /* Annotation.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +64,11 @@
 		9F6B84481C94ED5A00CEFC04 /* CacheListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheListViewController.swift; sourceTree = "<group>"; };
 		9F6B844A1C94EE8300CEFC04 /* CacheDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheDetailViewController.swift; sourceTree = "<group>"; };
 		9F6B844C1C94EFDC00CEFC04 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		9F6B84521C94F0FB00CEFC04 /* FoundCacheListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundCacheListViewController.swift; sourceTree = "<group>"; };
+		9F6B84521C94F0FB00CEFC04 /* FoundCachesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundCachesListViewController.swift; sourceTree = "<group>"; };
+		9F6B84541C95E8C700CEFC04 /* ClosestCachesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosestCachesViewController.swift; sourceTree = "<group>"; };
+		9F6B84561C95F12A00CEFC04 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9F6B845A1C96182600CEFC04 /* Waterloo.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Waterloo.gpx; sourceTree = "<group>"; };
+		9F6B845B1C9618BB00CEFC04 /* Waterloo.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Waterloo.gpx; path = Scavenger/Waterloo.gpx; sourceTree = "<group>"; };
 		9FE8B2101C8EA04100A4A2BB /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F6B84571C95F12A00CEFC04 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +101,8 @@
 		9F44A1591C801F41004EE091 = {
 			isa = PBXGroup;
 			children = (
+				9F6B845B1C9618BB00CEFC04 /* Waterloo.gpx */,
+				9F6B84561C95F12A00CEFC04 /* CoreLocation.framework */,
 				9F44A1641C801F41004EE091 /* Scavenger */,
 				9F44A1791C801F41004EE091 /* ScavengerTests */,
 				9F44A1841C801F41004EE091 /* ScavengerUITests */,
@@ -117,8 +127,7 @@
 				9F47BE471C83CC55000270EB /* MenuViewController.swift */,
 				9F47BE4B1C83D06D000270EB /* MapViewController.swift */,
 				9F6B84481C94ED5A00CEFC04 /* CacheListViewController.swift */,
-				9F6B84521C94F0FB00CEFC04 /* FoundCacheListViewController.swift */,
-				9F6B844A1C94EE8300CEFC04 /* CacheDetailViewController.swift */,
+				9F6B84581C95F70F00CEFC04 /* Cache List */,
 				9F6B844C1C94EFDC00CEFC04 /* Extensions.swift */,
 				9F6B84451C93E6BF00CEFC04 /* Cache.swift */,
 				9FE8B2101C8EA04100A4A2BB /* Annotation.swift */,
@@ -155,10 +164,29 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		9F6B84581C95F70F00CEFC04 /* Cache List */ = {
+			isa = PBXGroup;
+			children = (
+				9F6B84521C94F0FB00CEFC04 /* FoundCachesListViewController.swift */,
+				9F6B84541C95E8C700CEFC04 /* ClosestCachesViewController.swift */,
+				9F6B84591C95F73300CEFC04 /* Detail */,
+			);
+			name = "Cache List";
+			sourceTree = "<group>";
+		};
+		9F6B84591C95F73300CEFC04 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9F6B844A1C94EE8300CEFC04 /* CacheDetailViewController.swift */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
 		9FE8B2501C923FA500A4A2BB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				9F44A16C1C801F41004EE091 /* Assets.xcassets */,
+				9F6B845A1C96182600CEFC04 /* Waterloo.gpx */,
 				9F44A16E1C801F41004EE091 /* LaunchScreen.storyboard */,
 				9F44A1711C801F41004EE091 /* Info.plist */,
 			);
@@ -274,6 +302,7 @@
 			files = (
 				9F44A1701C801F41004EE091 /* LaunchScreen.storyboard in Resources */,
 				9F6B84421C93E66600CEFC04 /* caches.json in Resources */,
+				9F6B845C1C9618BB00CEFC04 /* Waterloo.gpx in Resources */,
 				9F6B84441C93E67300CEFC04 /* found.json in Resources */,
 				9F44A16D1C801F41004EE091 /* Assets.xcassets in Resources */,
 			);
@@ -300,13 +329,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F6B84531C94F0FB00CEFC04 /* FoundCacheListViewController.swift in Sources */,
+				9F6B84531C94F0FB00CEFC04 /* FoundCachesListViewController.swift in Sources */,
 				9F6B844B1C94EE8300CEFC04 /* CacheDetailViewController.swift in Sources */,
 				9F44A1661C801F41004EE091 /* AppDelegate.swift in Sources */,
 				9F47BE4C1C83D06D000270EB /* MapViewController.swift in Sources */,
 				9F6B844D1C94EFDC00CEFC04 /* Extensions.swift in Sources */,
 				9FE8B2111C8EA04100A4A2BB /* Annotation.swift in Sources */,
 				9F6B84461C93E6BF00CEFC04 /* Cache.swift in Sources */,
+				9F6B84551C95E8C800CEFC04 /* ClosestCachesViewController.swift in Sources */,
 				9F47BE481C83CC55000270EB /* MenuViewController.swift in Sources */,
 				9F6B84491C94ED5A00CEFC04 /* CacheListViewController.swift in Sources */,
 			);

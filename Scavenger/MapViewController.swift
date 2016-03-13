@@ -44,13 +44,13 @@ class MapViewController: UIViewController {
         var newRegion = MKCoordinateRegion()
         let latitudes = self.annotations.map { $0.coordinate.latitude }
         let longitudes = self.annotations.map { $0.coordinate.longitude }
-        let avgLat = Int(latitudes.reduce(0, combine: +))/latitudes.count
-        let avgLon = Int(longitudes.reduce(0, combine: +))/longitudes.count
+        let avgLat = latitudes.reduce(0, combine: +)/Double(latitudes.count)
+        let avgLon = longitudes.reduce(0, combine: +)/Double(longitudes.count)
         newRegion.center.latitude = Double(avgLat)
         newRegion.center.longitude = Double(avgLon)
         
-        newRegion.span.latitudeDelta = 0.2
-        newRegion.span.longitudeDelta = 0.2
+        newRegion.span.latitudeDelta = 0.02
+        newRegion.span.longitudeDelta = 0.02
         
         self.mapView.setRegion(newRegion, animated: true)
     }
