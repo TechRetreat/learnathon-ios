@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func start() {
         let menu = MenuViewController()
         let navController = UINavigationController(rootViewController: menu)
+        navController.navigationBar.translucent = false
         
         self.window!.rootViewController = navController
     }
