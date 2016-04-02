@@ -11,12 +11,17 @@ import UIKit
 class FoundCachesListViewController: CacheListViewController {
     
     func getFoundLocations() {
-        DataModel.sharedModel.updateCaches()
-        let allCaches = DataModel.sharedModel.caches.map{ $1 }
-        let foundCaches = allCaches.filter {
-            $0.found != nil
+        DataModelManager.sharedModel.updateCaches()
+        let allCaches = DataModelManager.sharedModel.caches.map{ key, value in value }
+        let foundCaches = allCaches.filter { cache in
+            cache.found != nil
         }
         self.caches = foundCaches
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Found Caches"
     }
     
     override func viewWillAppear(animated: Bool) {

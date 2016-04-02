@@ -45,7 +45,6 @@ class CacheDetailViewController: UIViewController {
     }
     
     func drawButton() {
-        
         self.foundButton.titleLabel?.textColor = UIColor.whiteColor()
         self.foundButton.titleLabel?.textAlignment = .Center
         self.foundButton.titleLabel?.font = UIFont.systemFontOfSize(14)

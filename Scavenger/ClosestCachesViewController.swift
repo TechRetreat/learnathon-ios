@@ -15,8 +15,8 @@ class ClosestCachesViewController: CacheListViewController {
     var currentLocation: CLLocation? = nil
     
     func getClosestLocations() {
-        DataModel.sharedModel.updateCaches()
-        let allCaches = DataModel.sharedModel.caches.map{ $1 }
+        DataModelManager.sharedModel.updateCaches()
+        let allCaches = DataModelManager.sharedModel.caches.map{ $1 }
         let sortedCaches = allCaches.sort { a, b in
             let locationA = CLLocation(latitude: a.location.latitude, longitude: a.location.longitude)
             let locationB = CLLocation(latitude: b.location.latitude, longitude: b.location.longitude)
@@ -37,9 +37,10 @@ class ClosestCachesViewController: CacheListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Closest Caches"
+        
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-        
     }
     
     

@@ -9,10 +9,12 @@
 import UIKit
 
 class MenuViewController: UIViewController {
+    
+    private static let menuCellIdentifier = "menuCellIdentifier"
+    
     private let tableView = UITableView()
     private let menus = ["Map", "My Found Locations", "Nearby", "Settings"]
-    private let controllers = [MapViewController(), FoundCachesListViewController(), ClosestCachesViewController()]
-    private let menuCellIdentifier = "menuCellIdentifier"
+    private let controllers = [MapViewController(), FoundCachesListViewController(), ClosestCachesViewController(), SettingsViewController()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,7 @@ class MenuViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 100
         tableView.frame = self.view.bounds
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: menuCellIdentifier)
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: MenuViewController.menuCellIdentifier)
         
         self.view.addSubview(tableView)
     }
@@ -44,16 +46,12 @@ extension MenuViewController: UITableViewDelegate {
 
 extension MenuViewController: UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menus.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(menuCellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(MenuViewController.menuCellIdentifier, forIndexPath: indexPath)
         
         let menuTitle = menus[indexPath.row]
         cell.textLabel?.text = menuTitle

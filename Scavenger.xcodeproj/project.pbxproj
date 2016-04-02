@@ -24,6 +24,8 @@
 		9F6B84551C95E8C800CEFC04 /* ClosestCachesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B84541C95E8C700CEFC04 /* ClosestCachesViewController.swift */; };
 		9F6B84571C95F12A00CEFC04 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6B84561C95F12A00CEFC04 /* CoreLocation.framework */; };
 		9F6B845C1C9618BB00CEFC04 /* Waterloo.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9F6B845B1C9618BB00CEFC04 /* Waterloo.gpx */; };
+		9F8104ED1CA8A9220083B0D1 /* DataModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8104EC1CA8A9220083B0D1 /* DataModelManager.swift */; };
+		9F8104F01CA8BFA40083B0D1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8104EF1CA8BFA40083B0D1 /* SettingsViewController.swift */; };
 		9FE8B2111C8EA04100A4A2BB /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8B2101C8EA04100A4A2BB /* Annotation.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		9F6B84561C95F12A00CEFC04 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9F6B845A1C96182600CEFC04 /* Waterloo.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Waterloo.gpx; sourceTree = "<group>"; };
 		9F6B845B1C9618BB00CEFC04 /* Waterloo.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Waterloo.gpx; path = Scavenger/Waterloo.gpx; sourceTree = "<group>"; };
+		9F8104EC1CA8A9220083B0D1 /* DataModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModelManager.swift; sourceTree = "<group>"; };
+		9F8104EF1CA8BFA40083B0D1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9FE8B2101C8EA04100A4A2BB /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,11 +130,11 @@
 				9F44A1651C801F41004EE091 /* AppDelegate.swift */,
 				9F47BE471C83CC55000270EB /* MenuViewController.swift */,
 				9F47BE4B1C83D06D000270EB /* MapViewController.swift */,
+				9F8104EF1CA8BFA40083B0D1 /* SettingsViewController.swift */,
 				9F6B84481C94ED5A00CEFC04 /* CacheListViewController.swift */,
 				9F6B84581C95F70F00CEFC04 /* Cache List */,
 				9F6B844C1C94EFDC00CEFC04 /* Extensions.swift */,
-				9F6B84451C93E6BF00CEFC04 /* Cache.swift */,
-				9FE8B2101C8EA04100A4A2BB /* Annotation.swift */,
+				9F8104EE1CA8A92B0083B0D1 /* Data Model */,
 				9FE8B2501C923FA500A4A2BB /* Helpers */,
 				9F6B84471C94C4DF00CEFC04 /* Data */,
 			);
@@ -180,6 +184,16 @@
 				9F6B844A1C94EE8300CEFC04 /* CacheDetailViewController.swift */,
 			);
 			name = Detail;
+			sourceTree = "<group>";
+		};
+		9F8104EE1CA8A92B0083B0D1 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F8104EC1CA8A9220083B0D1 /* DataModelManager.swift */,
+				9F6B84451C93E6BF00CEFC04 /* Cache.swift */,
+				9FE8B2101C8EA04100A4A2BB /* Annotation.swift */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 		9FE8B2501C923FA500A4A2BB /* Helpers */ = {
@@ -331,6 +345,7 @@
 			files = (
 				9F6B84531C94F0FB00CEFC04 /* FoundCachesListViewController.swift in Sources */,
 				9F6B844B1C94EE8300CEFC04 /* CacheDetailViewController.swift in Sources */,
+				9F8104ED1CA8A9220083B0D1 /* DataModelManager.swift in Sources */,
 				9F44A1661C801F41004EE091 /* AppDelegate.swift in Sources */,
 				9F47BE4C1C83D06D000270EB /* MapViewController.swift in Sources */,
 				9F6B844D1C94EFDC00CEFC04 /* Extensions.swift in Sources */,
@@ -339,6 +354,7 @@
 				9F6B84551C95E8C800CEFC04 /* ClosestCachesViewController.swift in Sources */,
 				9F47BE481C83CC55000270EB /* MenuViewController.swift in Sources */,
 				9F6B84491C94ED5A00CEFC04 /* CacheListViewController.swift in Sources */,
+				9F8104F01CA8BFA40083B0D1 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

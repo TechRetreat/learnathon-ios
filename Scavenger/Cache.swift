@@ -9,10 +9,12 @@
 import Foundation
 import MapKit
 
-typealias CacheDetailJSON = [String:AnyObject]
-typealias CacheJSON = [String:CacheDetailJSON]
+typealias CacheListJSONFormat = [String:CacheJSONFormat]
+typealias CacheJSONFormat = [String:AnyObject]
 
-class Cache {
+typealias LocationJSON = [String:Double]
+
+class Cache: Equatable {
     let name: String
     let description: String
     let difficulty: Int
@@ -26,24 +28,30 @@ class Cache {
         self.location = location
     }
     
-    init(json: CacheDetailJSON) {
+    // We add the question mark to this initializer, because it could fail if the input format is incorrect
+    init?(json: CacheJSONFormat) {
+        // This large if statment makes sure everything is of proper format
         if let name = json["name"] as? String,
            let desc = json["description"] as? String,
            let diff = json["difficulty"] as? Int,
-           let location = json["location"] as? [String:AnyObject],
-           let long = location["longitude"] as? Double,
-           let lat = location["latitude"] as? Double {
+           let location = json["location"] as? LocationJSON,
+           let long = location["longitude"],
+           let lat = location["latitude"] {
             
             self.name = name
             self.description = desc
             self.difficulty = diff
             self.location = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        } else {
-            assert(false, "JSON FORMAT IS BAD") // stop right here
+        } else { // This code runs if the JSON input format is bad
+            print("JSON FORMAT IS INVALID")
+            
+            // Initialize all of the properties
             self.name = ""
             self.description = ""
             self.difficulty = 0
             self.location = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+            
+            return nil
         }
     }
     
@@ -68,74 +76,6 @@ class Cache {
     }
 }
 
-
-class DataModel {
-    static let sharedModel = DataModel()
-    
-    var caches = [String:Cache]()
-    
-    init() {
-        self.updateCaches()
-    }
-    
-    enum DataModelError: ErrorType {
-        case InvalidFormat
-    }
-    
-    func updateCaches() {
-        self.loadCaches()
-        self.updateFoundStates()
-    }
-    
-    func loadCaches() { // Returns a dictionary of String ids to the cache object
-        do {
-            if let path = NSBundle.mainBundle().pathForResource("caches", ofType: "json") {
-                if let jsonData = NSData(contentsOfFile: path) {
-                    guard let jsonResult = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? [String:CacheJSON] else {
-                        print("We gucci")
-                        throw DataModelError.InvalidFormat
-                    }
-                    caches = [String:Cache]() // clear out old caches
-                    if let cacheEntry = jsonResult["caches"] {
-                        for (id, object) in cacheEntry {
-                            let cache = Cache(json: object)
-                            caches[id] = cache
-                        }
-                    }
-                }
-            }
-        } catch {
-            print("Something went wrong...")
-        }
-    }
-    
-    func updateFoundStates() {
-        do {
-            if let path = NSBundle.mainBundle().pathForResource("found", ofType: "json") {
-                if let jsonData = NSData(contentsOfFile: path) {
-                    guard let jsonResult = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? [String:[String:Double]] else {
-                        print("We gucci")
-                        throw DataModelError.InvalidFormat
-                    }
-                    
-                    if let cacheEntry = jsonResult["found_times"] {
-                        for (id, time) in cacheEntry {
-                            if let cache = self.caches[id] {
-                                cache.found = time
-                            }
-                        }
-                    }
-                }
-            }
-        } catch {
-            print("Something went wrong...")
-        }
-
-    }
-    
-    func findCache(id: String) {
-        if let cache = self.caches[id] { // if the cache exists
-            cache.foundItem(atTime: NSDate())
-        }
-    }
+func ==(lhs: Cache, rhs: Cache) -> Bool {
+    return lhs.name == rhs.name && lhs.description == rhs.description && lhs.difficulty == rhs.difficulty && lhs.found == rhs.found && lhs.location.latitude == rhs.location.latitude && lhs.location.longitude == rhs.location.longitude
 }

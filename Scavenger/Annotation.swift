@@ -11,6 +11,20 @@ import MapKit
 
 class Annotation: NSObject, MKAnnotation {
     
+    private static let annotationReuseIdentifier = "annotationReuseIdentifier"
+    
+    var cache: Cache? {
+        didSet {
+            self.title = cache?.name
+            self.subtitle = cache?.description
+            if let loc = cache?.location {
+                self.coordinate = loc
+            } else {
+                self.coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+            }
+        }
+    }
+    
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var subtitle: String?
@@ -25,17 +39,20 @@ class Annotation: NSObject, MKAnnotation {
         self.subtitle = subtitle
     }
     
-    static func createViewAnnotationForMapView(mapView: MKMapView, annotation: MKAnnotation) -> MKAnnotationView {
-        var returnedAnnotationView: MKAnnotationView?
-        if let _ = mapView.dequeueReusableAnnotationViewWithIdentifier("test") {
-            returnedAnnotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("test")!
-            returnedAnnotationView!.annotation = annotation
-        } else {
-            returnedAnnotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "annotation")
-            returnedAnnotationView!.canShowCallout = true
-        }
-        return returnedAnnotationView!
+    init(cache: Cache) {
+        self.cache = cache
+        self.coordinate = cache.location
     }
     
-    
+    static func createViewAnnotationForMapView(mapView: MKMapView, annotation: MKAnnotation) -> MKAnnotationView {
+        var returnedAnnotationView: MKAnnotationView
+        if let annotView = mapView.dequeueReusableAnnotationViewWithIdentifier(Annotation.annotationReuseIdentifier) {
+            returnedAnnotationView = annotView
+            returnedAnnotationView.annotation = annotation
+        } else {
+            returnedAnnotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: Annotation.annotationReuseIdentifier)
+            returnedAnnotationView.canShowCallout = true
+        }
+        return returnedAnnotationView
+    }
 }
