@@ -15,11 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var caches = DataModelManager()
     
     func start() {
-        let menu = MenuViewController()
-        let navController = UINavigationController(rootViewController: menu)
-        navController.navigationBar.translucent = false
+        let mapTab = UINavigationController(rootViewController: MapViewController())
+        let foundTab = UINavigationController(rootViewController: FoundCachesListViewController())
+        let closestTab = UINavigationController(rootViewController: ClosestCachesViewController())
+        let settingsTab = SettingsViewController()
         
-        self.window!.rootViewController = navController
+        let tabs = [mapTab, foundTab, closestTab, settingsTab]
+        
+        let tabController = UITabBarController()
+        tabController.tabBar.translucent = false
+        tabController.viewControllers = tabs
+        
+        self.window!.rootViewController = tabController
     }
 
 
