@@ -11,7 +11,6 @@ import UIKit
 class FoundCachesListViewController: CacheListViewController {
     
     func getFoundLocations() {
-        DataModelManager.sharedModel.updateCaches()
         let allCaches = DataModelManager.sharedModel.caches.map{ key, value in value }
         let foundCaches = allCaches.filter { cache in
             cache.found != nil

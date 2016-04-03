@@ -13,7 +13,7 @@ class MapViewController: UIViewController {
     
     private let mapView = MKMapView()
     private var annotations: [Annotation] = []
-    private let caches = Array(DataModelManager.sharedModel.caches.values)
+    private var caches = [Cache]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,6 @@ class MapViewController: UIViewController {
         self.view.backgroundColor = UIColor.blackColor()
         
         // Set up the map
-        self.mapView.frame = self.view.bounds
         self.mapView.showsUserLocation = true
         self.view.addSubview(self.mapView)
         self.mapView.delegate = self
@@ -34,12 +33,19 @@ class MapViewController: UIViewController {
 //            annotations.append(Annotation(cache: cache))
 //        }
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.caches = Array(DataModelManager.sharedModel.caches.values)
+        self.mapView.removeAnnotations(self.mapView.annotations) // clear all annotations
         // Create the annotations from those caches
         annotations = caches.map { cache in
-            //Annotation(cache: cache)
-            let annot = Annotation(title: cache.name, subtitle: cache.description, coordinate: cache.location)
-            annot.cache = cache
-            return annot
+            return Annotation(cache: cache)
+            //let annot = Annotation(title: cache.name, subtitle: cache.description, coordinate: cache.location)
+            //annot.cache = cache
+            //return annot
         }
         
         // Add the annotations to the map
@@ -49,11 +55,10 @@ class MapViewController: UIViewController {
         self.goToDefaultLocation()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         
-        self.navigationController?.navigationBar.barStyle = .Black
-        self.navigationController?.navigationBar.translucent = true
+        self.mapView.frame = self.view.bounds
     }
     
     func goToDefaultLocation() {
@@ -85,9 +90,8 @@ class MapViewController: UIViewController {
     
 }
 
-// Break this off into an extension of [Double]
 extension MapViewController {
-    func average(array: [Double]) -> Double { // TODO: Make as an extension of array
+    func average(array: [Double]) -> Double {
         var sum = 0.0
         for element in array {
             sum += element

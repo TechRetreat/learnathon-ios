@@ -15,14 +15,14 @@ class DataModelManager {
     var caches = [String:Cache]()
     
     init() {
-        self.updateCaches()
+        self.loadData()
     }
     
     enum DataModelError: ErrorType {
         case InvalidFormat
     }
     
-    func updateCaches() {
+    func loadData() {
         self.loadCaches()
         self.updateFoundStates()
     }
@@ -42,7 +42,6 @@ extension DataModelManager {
             if let path = NSBundle.mainBundle().pathForResource("caches", ofType: "json") {
                 if let jsonData = NSData(contentsOfFile: path) {
                     guard let jsonResult = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers) as? CacheListJSONFormat else {
-                        print("We gucci")
                         throw DataModelError.InvalidFormat
                     }
                     caches = [String:Cache]() // clear out old caches
@@ -62,7 +61,6 @@ extension DataModelManager {
             if let path = NSBundle.mainBundle().pathForResource("found", ofType: "json") {
                 if let jsonData = NSData(contentsOfFile: path) {
                     guard let jsonResult = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? [String:[String:Double]] else {
-                        print("We gucci")
                         throw DataModelError.InvalidFormat
                     }
                     

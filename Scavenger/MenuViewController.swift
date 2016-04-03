@@ -26,10 +26,15 @@ class MenuViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
-        tableView.frame = self.view.bounds
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: MenuViewController.menuCellIdentifier)
         
         self.view.addSubview(tableView)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+       
+        tableView.frame = self.view.bounds
     }
 }
 

@@ -41,6 +41,8 @@ class Annotation: NSObject, MKAnnotation {
     
     init(cache: Cache) {
         self.cache = cache
+        self.title = cache.name
+        self.subtitle = cache.description
         self.coordinate = cache.location
     }
     
