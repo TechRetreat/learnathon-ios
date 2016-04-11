@@ -36,8 +36,6 @@ class ClosestCachesViewController: CacheListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Closest Caches"
-        
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
     }

@@ -15,10 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var caches = DataModelManager()
     
     func start() {
-        let mapTab = UINavigationController(rootViewController: MapViewController())
-        let foundTab = UINavigationController(rootViewController: FoundCachesListViewController())
-        let closestTab = UINavigationController(rootViewController: ClosestCachesViewController())
-        let settingsTab = SettingsViewController()
+        let mapVC = MapViewController()
+        mapVC.title = "Map"
+        
+        let foundCacheListVC = FoundCachesListViewController()
+        foundCacheListVC.title = "Found Caches"
+        
+        let closestCachesVC = ClosestCachesViewController()
+        closestCachesVC.title = "Closest Caches"
+        
+        let settingsVC = SettingsViewController()
+        settingsVC.title = "Settings"
+        
+        let mapTab = UINavigationController(rootViewController: mapVC)
+        let foundTab = UINavigationController(rootViewController: foundCacheListVC)
+        let closestTab = UINavigationController(rootViewController: closestCachesVC)
+        let settingsTab = settingsVC
         
         let tabs = [mapTab, foundTab, closestTab, settingsTab]
         

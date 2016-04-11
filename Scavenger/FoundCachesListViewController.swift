@@ -20,7 +20,6 @@ class FoundCachesListViewController: CacheListViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Found Caches"
     }
     
     override func viewWillAppear(animated: Bool) {

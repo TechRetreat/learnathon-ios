@@ -18,8 +18,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Map"
-        
         // Set up the background colour to avoid lag
         self.view.backgroundColor = UIColor.blackColor()
         

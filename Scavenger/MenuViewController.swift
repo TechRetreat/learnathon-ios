@@ -19,9 +19,9 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Menu"
-        
         self.view.backgroundColor = UIColor.greenColor()
+        
+        self.title = "Settings"
         
         tableView.delegate = self
         tableView.dataSource = self
