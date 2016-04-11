@@ -27,12 +27,6 @@ class MapViewController: UIViewController {
         self.mapView.showsUserLocation = true
         self.view.addSubview(self.mapView)
         self.mapView.delegate = self
-        
-        // TODO: To consider
-//        for (_, cache) in caches {
-//            annotations.append(Annotation(cache: cache))
-//        }
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,10 +37,12 @@ class MapViewController: UIViewController {
         // Create the annotations from those caches
         annotations = caches.map { cache in
             return Annotation(cache: cache)
-            //let annot = Annotation(title: cache.name, subtitle: cache.description, coordinate: cache.location)
-            //annot.cache = cache
-            //return annot
         }
+        
+        // TODO: To consider
+//        for (_, cache) in caches {
+//            annotations.append(Annotation(cache: cache))
+//        }
         
         // Add the annotations to the map
         self.mapView.addAnnotations(self.annotations)
@@ -129,8 +125,6 @@ extension MapViewController: MKMapViewDelegate {
                 }
             }
         }
-        
-        
         
         return returnedAnnotationView
     }

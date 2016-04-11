@@ -27,7 +27,7 @@ class CacheDetailViewController: UIViewController {
     
     func drawDescription() {
         self.descriptionLabel.text = cache.description
-        self.descriptionLabel.frame = CGRect(x: 0, y: 50, width: self.view.frame.width, height: 50)
+        self.descriptionLabel.font = UIFont.systemFontOfSize(15)
         self.descriptionLabel.textColor = UIColor.blackColor()
         
         self.view.addSubview(self.descriptionLabel)
@@ -73,7 +73,7 @@ class CacheDetailViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         self.titleLabel.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-        self.descriptionLabel.font = UIFont.systemFontOfSize(15)
+        self.descriptionLabel.frame = CGRect(x: 0, y: 50, width: self.view.frame.width, height: 50)
         self.locationLabel.frame = CGRect(x: 0, y: 100, width: self.view.frame.width, height: 50)
         self.foundButton.frame = CGRect(x: 0, y: self.view.frame.height - 80, width: self.view.frame.width, height: 80)
         self.foundButton.titleLabel?.frame = self.foundButton.bounds

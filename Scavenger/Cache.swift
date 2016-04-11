@@ -45,12 +45,6 @@ class Cache: Equatable {
         } else { // This code runs if the JSON input format is bad
             print("JSON FORMAT IS INVALID")
             
-            // Initialize all of the properties
-            self.name = ""
-            self.description = ""
-            self.difficulty = 0
-            self.location = CLLocationCoordinate2D(latitude: 0, longitude: 0)
-            
             return nil
         }
     }
