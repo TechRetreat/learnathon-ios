@@ -1,3 +1,3 @@
-#Learnathon iOS – Savenger
+# Learnathon iOS – Savenger
 
-##Home of the iOS stream learnathon project
+## Home of the iOS stream learnathon project
